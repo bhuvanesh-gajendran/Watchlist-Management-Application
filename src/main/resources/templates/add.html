@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+	<meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}" />
+    <link rel="icon" type="images/x-icons" th:href="@{/icon.png}" />
+</head>
+<body>
+    <section class="navbar">
+        <a class="home-ref" th:href="@{/home}">
+            <div class="navbar-icon">
+                <img class="icon" th:src="@{/icon.png}"/>
+                <h1>WATCH-LIST</h1>
+            </div>
+        </a>
+        <div class="navbar-select">
+            <a class="navbar-select-opt" th:href="@{/home}">HOME</a>
+            <a class="navbar-select-opt" th:href="@{/all}">MOVIES AVALIABLE</a>
+            <a class="navbar-select-opt" th:href="@{/mine}">MY MOVIES</a>
+        </div>
+    </section>    
+    <section class="result-container result-container3">
+        <form th:action="@{/add}" th:object="${watchlist}" method="post">
+            <table>
+                <thead>
+                    <th colspan="2"><h1>Add Result</h1></th>
+                </thead>
+                <tbody>
+                	<tr><input type="hidden" th:field=*{id}/></tr>
+                    <tr>
+                        <td>Movie Name </td>
+                        <td><input type=text th:field=*{mname} placeholder="Ex:InterStellar"/></td>
+                    </tr>
+                    <tr>
+                        <td>Directed By </td>
+                        <td><input type="text" th:field="*{dname}" placeholder="Ex:Christopher Nolan"></td>
+                    </tr>
+                    <tr>
+                        <td>Released on </td>
+                        <td><input type="text" th:field="*{year}" placeholder="Year"></td>
+                    </tr>
+                    <tr>
+                        <td class="banana" colspan="2"><button type="submit">Submit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </section>
+</body>
+</html>
